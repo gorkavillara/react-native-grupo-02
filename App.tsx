@@ -3,33 +3,30 @@ import {
   StyleSheet,
   Text,
   View,
-  Button,
-  Alert,
-  TouchableOpacity,
+  Button
 } from "react-native";
 
 export default function App() {
-  const handlePress = () => Alert.alert("Has hecho click");
+  const handlePress = () => {
+    let suma = 0
+
+    for (let index = 0; index < 10; index++) {
+      suma += index;
+      console.log(suma)
+    }
+  }
   return (
     <View style={styles.container}>
       <Text style={styles.texto} onPress={handlePress}>
         ¡Hola mundo!
       </Text>
-      <Button title="Botón" onPress={() => Alert.alert("Has hecho click")} />
-      <TouchableOpacity onPress={() => null}>
-        <Text
-          style={{
-            fontSize: 24,
-            paddingVertical: 8,
-            paddingHorizontal: 16,
-            backgroundColor: "#dd0088",
-            color: "white",
-            borderRadius: 8,
-          }}
-        >
-          Otro botón
-        </Text>
-      </TouchableOpacity>
+      <View>
+        <Text style={{ textAlign: "center", fontSize: 24 }}>Contador</Text>
+        <View style={{ flexDirection: "row" }}>
+          <Button title="boton" onPress={handlePress} />
+          <Button title="boton" onPress={handlePress} />
+        </View>
+      </View>
       <StatusBar style="auto" />
     </View>
   );
