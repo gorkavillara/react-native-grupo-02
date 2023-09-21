@@ -1,18 +1,31 @@
-import { StyleSheet, ImageBackground, ScrollView } from "react-native"
+import { StyleSheet, ImageBackground, View, Button } from "react-native"
 import { StatusBar } from "expo-status-bar"
 import Constants from "expo-constants"
-import { MiComponente, FormularioRegistro } from "./screens"
+import {
+    MiComponente,
+    FormularioRegistro,
+    Contador,
+    PokemonFetch
+} from "./screens"
+import AppContextProvider from "./contexts/AppContextProvider"
 // @ts-ignore
 // import bgImage from "./assets/bgImage.png"
 
 export default function App() {
     return (
-        <ImageBackground style={styles.bgImage} source={require("./assets/bgImage.png")}>
-            <ScrollView style={styles.container}>
-                <FormularioRegistro />
-                <StatusBar style="auto" />
-            </ScrollView>
-        </ImageBackground>
+        <AppContextProvider>
+            <ImageBackground
+                style={styles.bgImage}
+                source={require("./assets/bgImage.png")}
+            >
+                <View style={styles.container}>
+                    <Contador />
+                    {/* {muestraPokemon && <PokemonFetch />} */}
+                    {/* <Button title="Muestra Pokemon" onPress={() => setMuestraPokemon(prev => !prev)} /> */}
+                    <StatusBar style="auto" />
+                </View>
+            </ImageBackground>
+        </AppContextProvider>
     )
 }
 
@@ -25,5 +38,5 @@ const styles = StyleSheet.create({
         flex: 1,
         padding: 8
     },
-    texto: { fontSize: 32, marginVertical: 16 },
+    texto: { fontSize: 32, marginVertical: 16 }
 })
