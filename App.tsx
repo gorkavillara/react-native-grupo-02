@@ -1,46 +1,29 @@
-import { StatusBar } from "expo-status-bar";
-import {
-  StyleSheet,
-  Text,
-  View,
-  Button,
-  Alert,
-  TouchableOpacity,
-} from "react-native";
+import { StyleSheet, ImageBackground, ScrollView } from "react-native"
+import { StatusBar } from "expo-status-bar"
+import Constants from "expo-constants"
+import { MiComponente, FormularioRegistro } from "./screens"
+// @ts-ignore
+// import bgImage from "./assets/bgImage.png"
 
 export default function App() {
-  const handlePress = () => Alert.alert("Has hecho click");
-  return (
-    <View style={styles.container}>
-      <Text style={styles.texto} onPress={handlePress}>
-        ¡Hola mundo!
-      </Text>
-      <Button title="Botón" onPress={() => Alert.alert("Has hecho click")} />
-      <TouchableOpacity onPress={() => null}>
-        <Text
-          style={{
-            fontSize: 24,
-            paddingVertical: 8,
-            paddingHorizontal: 16,
-            backgroundColor: "#dd0088",
-            color: "white",
-            borderRadius: 8,
-          }}
-        >
-          Otro botón
-        </Text>
-      </TouchableOpacity>
-      <StatusBar style="auto" />
-    </View>
-  );
+    return (
+        <ImageBackground style={styles.bgImage} source={require("./assets/bgImage.png")}>
+            <ScrollView style={styles.container}>
+                <FormularioRegistro />
+                <StatusBar style="auto" />
+            </ScrollView>
+        </ImageBackground>
+    )
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  texto: { fontSize: 32, marginVertical: 16 },
-});
+    bgImage: {
+        flex: 1,
+        paddingTop: Constants.statusBarHeight
+    },
+    container: {
+        flex: 1,
+        padding: 8
+    },
+    texto: { fontSize: 32, marginVertical: 16 },
+})
