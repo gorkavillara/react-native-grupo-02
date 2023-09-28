@@ -1,13 +1,16 @@
 import AppContextProvider from "./contexts/AppContextProvider"
-import StyledScreen from "./screens/StyledScreen"
+import PaperScreen from "./screens/PaperScreen"
 import AppLayout from "./layouts/AppLayout"
+import { PaperProvider } from "react-native-paper"
 
 export default function App() {
     return (
-        <AppContextProvider>
-            <AppLayout>
-                <StyledScreen />
-            </AppLayout>
-        </AppContextProvider>
+        <PaperProvider>
+            <AppContextProvider>
+                <AppLayout>
+                    <PaperScreen />
+                </AppLayout>
+            </AppContextProvider>
+        </PaperProvider>
     )
 }
