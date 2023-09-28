@@ -9,6 +9,7 @@ import {
     ContadorActionType,
     contadorReductor
 } from "./reducers/contadorReducer"
+import { useColorScheme } from "react-native"
 
 interface IAppContext {
     darkMode: boolean
@@ -21,7 +22,9 @@ interface IAppContext {
 export const AppContext = createContext<IAppContext>(null!)
 
 const AppContextProvider = ({ children }: PropsWithChildren) => {
-    const [darkMode, setDarkMode] = useState(false)
+    const colorScheme = useColorScheme()
+    // console.log(colorScheme)
+    const [darkMode, setDarkMode] = useState(colorScheme === "dark")
     const [contador, dispatchContador] = useReducer(contadorReductor, 3)
     // const [contador, setContador] = useState(0)
 

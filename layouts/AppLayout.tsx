@@ -1,15 +1,15 @@
 import { StyleSheet, View, ImageBackground } from "react-native"
 import Constants from "expo-constants"
-import React, { useMemo } from "react"
+import React, { useContext, useMemo } from "react"
 import { StatusBar } from "expo-status-bar"
 import { AppContext } from "../contexts/AppContextProvider"
 import { useColorScheme } from "nativewind"
 
 const AppLayout = ({ children }: React.PropsWithChildren) => {
-    // const { darkMode } = useContext(AppContext)
-    const { colorScheme } = useColorScheme()
+    const { darkMode } = useContext(AppContext)
+    // const { colorScheme } = useColorScheme()
 
-    const darkMode = useMemo(() => colorScheme === "dark", [colorScheme])
+    // const darkMode = useMemo(() => colorScheme === "dark", [colorScheme])
     return (
         <ImageBackground
             style={styles.bgImage}

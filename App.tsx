@@ -1,12 +1,12 @@
 import { AppContextProvider } from "./contexts"
 import { AppLayout } from "./layouts"
-import { NativeWindScreen } from "./screens"
+import { StyledScreen } from "./screens"
 
 export default function App() {
     return (
         <AppContextProvider>
             <AppLayout>
-                <NativeWindScreen />
+                <StyledScreen />
             </AppLayout>
         </AppContextProvider>
     )
