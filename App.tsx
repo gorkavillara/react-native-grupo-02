@@ -8,6 +8,9 @@ import {
     PokemonFetch
 } from "./screens"
 import AppContextProvider from "./contexts/AppContextProvider"
+import ContadorDeContexto from "./screens/ContadorDeContexto"
+import ListaTareasConHook from "./screens/ListaTareasConHook"
+import PokemonConHook from "./screens/PokemonConHook"
 // @ts-ignore
 // import bgImage from "./assets/bgImage.png"
 
@@ -19,7 +22,10 @@ export default function App() {
                 source={require("./assets/bgImage.png")}
             >
                 <View style={styles.container}>
-                    <Contador />
+                    {/* <ListaTareasConHook /> */}
+                    <PokemonConHook />
+                    {/* <ContadorDeContexto /> */}
+                    {/* <Contador /> */}
                     {/* {muestraPokemon && <PokemonFetch />} */}
                     {/* <Button title="Muestra Pokemon" onPress={() => setMuestraPokemon(prev => !prev)} /> */}
                     <StatusBar style="auto" />

@@ -10,3 +10,9 @@ export interface Pokemon {
         front_default: string
     }
 }
+
+export interface Tarea {
+    id: number
+    text: string
+    completed: boolean
+}
