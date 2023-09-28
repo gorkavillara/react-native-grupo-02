@@ -1,6 +1,5 @@
-import MiComponente from "./MiComponente";
-import FormularioRegistro from "./FormularioRegistro/FormularioRegistro";
-import Contador from "./Contador";
-import PokemonFetch from "./PokemonFetch/PokemonFetch";
+import StyledScreen from "./StyledScreen"
+import PaperScreen from "./PaperScreen"
+import NativeWindScreen from "./NativeWindScreen"
 
-export { MiComponente, FormularioRegistro, Contador, PokemonFetch }
+export { StyledScreen, PaperScreen, NativeWindScreen }

@@ -1,11 +1,15 @@
 import { StyleSheet, View, ImageBackground } from "react-native"
 import Constants from "expo-constants"
-import React, { useContext } from "react"
+import React, { useMemo } from "react"
 import { StatusBar } from "expo-status-bar"
 import { AppContext } from "../contexts/AppContextProvider"
+import { useColorScheme } from "nativewind"
 
 const AppLayout = ({ children }: React.PropsWithChildren) => {
-    const { darkMode } = useContext(AppContext)
+    // const { darkMode } = useContext(AppContext)
+    const { colorScheme } = useColorScheme()
+
+    const darkMode = useMemo(() => colorScheme === "dark", [colorScheme])
     return (
         <ImageBackground
             style={styles.bgImage}
@@ -14,6 +18,7 @@ const AppLayout = ({ children }: React.PropsWithChildren) => {
                     ? require("../assets/bgImageDark.png")
                     : require("../assets/bgImage.png")
             }
+            className="invert-100"
         >
             <View style={styles.container}>
                 {children}
