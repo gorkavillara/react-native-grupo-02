@@ -3,6 +3,7 @@ import { Switch, Text, View } from "react-native"
 import { AppContext } from "../../contexts/AppContextProvider"
 import { standardStyles as styles } from "../../styles"
 import { darkStyles } from "./styles"
+import ImagePreview from "../../components/ImagePreview/ImagePreview"
 
 const StyledScreen = () => {
     const { darkMode, toggleDarkMode } = useContext(AppContext)
@@ -11,6 +12,7 @@ const StyledScreen = () => {
             <Text style={[styles.titulo, darkMode && darkStyles.darkTitle]}>
                 StyledScreen
             </Text>
+            <ImagePreview />
             <Switch value={darkMode} onChange={toggleDarkMode} />
         </View>
     )
