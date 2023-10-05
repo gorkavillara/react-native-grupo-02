@@ -1,14 +1,13 @@
+import { NavigationContainer } from "@react-navigation/native"
 import { AppContextProvider } from "./contexts"
-import { AppLayout } from "./layouts"
-import { LoginScreen, OrientationScreen } from "./screens"
+import StoreStack from "./navigation/stacks/StoreStack"
 
 export default function App() {
     return (
         <AppContextProvider>
-            <AppLayout>
-                {/* <LoginScreen /> */}
-                <OrientationScreen />
-            </AppLayout>
+            <NavigationContainer>
+                <StoreStack />
+            </NavigationContainer>
         </AppContextProvider>
     )
 }

@@ -1,13 +1,5 @@
-import StyledScreen from "./StyledScreen/StyledScreen"
-import PaperScreen from "./PaperScreen"
-import NativeWindScreen from "./NativeWindScreen"
-import LoginScreen from "./LoginScreen"
-import OrientationScreen from "./OrientationScreen"
+import Home from "./Home"
+import Store from "./Store/Store"
+import Details from "./Details"
 
-export {
-    OrientationScreen,
-    StyledScreen,
-    PaperScreen,
-    NativeWindScreen,
-    LoginScreen
-}
+export { Home, Store, Details }
