@@ -2,7 +2,12 @@ import { useState } from "react"
 import { Image } from "react-native"
 import { styles } from "./styles"
 
-const ImagePreview = () => {
+interface Props {
+    fullImage: any
+    thumbImage: any
+}
+
+const ImagePreview = ({ fullImage, thumbImage }: Props) => {
     const [showFullImage, setShowFullImage] = useState(false)
     const loadCompleted = () => {
         setTimeout(() => setShowFullImage(true), 2000)
@@ -11,15 +16,21 @@ const ImagePreview = () => {
     return (
         <>
             <Image
-                style={[styles.image, { display: showFullImage ? "flex" : "none" }]}
+                style={[
+                    styles.image,
+                    { display: showFullImage ? "flex" : "none" }
+                ]}
                 resizeMode="cover"
                 onLoadEnd={loadCompleted}
-                source={require("../../assets/developer.jpeg")}
+                source={fullImage}
             />
             <Image
-                style={[styles.image, { display: showFullImage ? "none" : "flex" }]}
+                style={[
+                    styles.image,
+                    { display: showFullImage ? "none" : "flex" }
+                ]}
                 resizeMode="cover"
-                source={require("../../assets/developer_thumbnail.jpeg")}
+                source={thumbImage}
             />
         </>
     )

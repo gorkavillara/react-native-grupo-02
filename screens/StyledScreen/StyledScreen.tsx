@@ -12,7 +12,10 @@ const StyledScreen = () => {
             <Text style={[styles.titulo, darkMode && darkStyles.darkTitle]}>
                 StyledScreen
             </Text>
-            <ImagePreview />
+            <ImagePreview
+                fullImage={require("../../assets/developer.jpeg")}
+                thumbImage={require("../../assets/developer_thumbnail.jpeg")}
+            />
             <Switch value={darkMode} onChange={toggleDarkMode} />
         </View>
     )
