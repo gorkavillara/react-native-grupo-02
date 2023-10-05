@@ -35,6 +35,12 @@ const Home = ({
                 >
                     <Text>Ir a la tienda</Text>
                 </Pressable>
+                <Pressable
+                    style={styles.button}
+                    onPress={() => navigation.navigate("Contador")}
+                >
+                    <Text>Ir al contador</Text>
+                </Pressable>
             </BlurView>
         </ImageBackground>
     )
