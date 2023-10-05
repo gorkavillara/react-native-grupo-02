@@ -1,12 +1,13 @@
 import { AppContextProvider } from "./contexts"
 import { AppLayout } from "./layouts"
-import { StyledScreen } from "./screens"
+import { LoginScreen, OrientationScreen } from "./screens"
 
 export default function App() {
     return (
         <AppContextProvider>
             <AppLayout>
-                <StyledScreen />
+                {/* <LoginScreen /> */}
+                <OrientationScreen />
             </AppLayout>
         </AppContextProvider>
     )
