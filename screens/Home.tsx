@@ -37,6 +37,12 @@ const Home = ({
                 >
                     <Text>Ir a cámara</Text>
                 </Pressable>
+                <Pressable
+                    style={styles.button}
+                    onPress={() => navigation.navigate("MapsScreen")}
+                >
+                    <Text>Ir a mapas</Text>
+                </Pressable>
                 {/* <Pressable
                     style={styles.button}
                     onPress={() => navigation.navigate("Store")}
