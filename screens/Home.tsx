@@ -21,8 +21,8 @@ const Home = ({
             source={require("../assets/homeBg.jpg")}
             style={standardStyles.container}
         >
-            <BlurView
-                intensity={25}
+            <View
+                // intensity={25}
                 style={[
                     standardStyles.container,
                     { backgroundColor: "#444a", width: "100%", gap: 16 }
@@ -41,7 +41,13 @@ const Home = ({
                 >
                     <Text>Ir al contador</Text>
                 </Pressable>
-            </BlurView>
+                <Pressable
+                    style={styles.button}
+                    onPress={() => navigation.navigate("PokeFinder")}
+                >
+                    <Text>Ir al PokeFinder</Text>
+                </Pressable>
+            </View>
         </ImageBackground>
     )
 }

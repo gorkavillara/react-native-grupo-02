@@ -2,12 +2,14 @@ import { Text } from "react-native"
 import { createNativeStackNavigator } from "@react-navigation/native-stack"
 import { Contador, Details, Home, Store } from "../../screens"
 import DisplaySuma from "../../screens/Contador/components/DisplaySuma"
+import PokeFinder from "../../screens/PokeFinder"
 
 export type StackNavigatorType = {
     Home: undefined
     Store: undefined
     Details: { itemId: number }
     Contador: undefined
+    PokeFinder: undefined
 }
 
 const ContadorScreen = () => (
@@ -19,7 +21,7 @@ const ContadorScreen = () => (
 
 const Stack = createNativeStackNavigator<StackNavigatorType>()
 const StoreStack = () => {
-    const isLoggedIn = false
+    const isLoggedIn = true
     return (
         <Stack.Navigator initialRouteName="Home">
             {isLoggedIn ? (
@@ -36,6 +38,7 @@ const StoreStack = () => {
                     />
                     <Stack.Screen name="Details" component={Details} />
                     <Stack.Screen name="Contador" component={ContadorScreen} />
+                    <Stack.Screen name="PokeFinder" component={PokeFinder} />
                 </>
             ) : (
                 <>
