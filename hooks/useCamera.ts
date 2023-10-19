@@ -51,9 +51,11 @@ export const useCamera = () => {
         ToastAndroid.show("👀 Código escaneado correctamente", 300)
         Vibration.vibrate(300)
 
-        Linking.openURL(scanningResult.data).catch((err) => {
-            console.log("Error al abrir la url", err)
-        })
+        Linking.canOpenURL(scanningResult.data).then((can) =>
+            can && Linking.openURL(scanningResult.data).catch((err) => {
+                console.log("Error al abrir la url", err)
+            })
+        )
     }
 
     const takePicture = () => {
