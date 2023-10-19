@@ -7,15 +7,17 @@ import {
 } from "react-native"
 import { BlurView } from "expo-blur"
 import { standardStyles } from "../styles"
-import { StackNavigatorType } from "../navigation/stacks/StoreStack"
+import { StackNavigatorLoggedInType } from "../navigation/stacks/StoreStack"
 import type { NativeStackScreenProps } from "@react-navigation/native-stack"
+import { useUser } from "../hooks/useUser"
 
 const Home = ({
     navigation,
     route
-}: NativeStackScreenProps<StackNavigatorType, "Home">) => {
+}: NativeStackScreenProps<StackNavigatorLoggedInType, "Home">) => {
     console.log({ navigation })
     console.log({ route })
+    const { logout } = useUser()
     return (
         <ImageBackground
             source={require("../assets/homeBg.jpg")}
@@ -46,6 +48,9 @@ const Home = ({
                     onPress={() => navigation.navigate("PokeFinder")}
                 >
                     <Text>Ir al PokeFinder</Text>
+                </Pressable>
+                <Pressable onPress={logout}>
+                    <Text style={{ color: "white" }}>Logout</Text>
                 </Pressable>
             </View>
         </ImageBackground>
