@@ -8,8 +8,8 @@ export interface User {
 
 export const userAtom = atom<null | User>({
     key: "user",
-    default: null
-    // default: { id: 1, username: "Gorka", role: "Customer" }
+    // default: null
+    default: { id: 1, username: "Gorka", role: "Customer" }
 })
 
 export const isLoggedInSelector = selector<boolean>({

@@ -1,6 +1,6 @@
 import { Text } from "react-native"
 import { createNativeStackNavigator } from "@react-navigation/native-stack"
-import { Contador, Details, Home, Store } from "../../screens"
+import { CameraScreen, Contador, Details, Home, Store } from "../../screens"
 import DisplaySuma from "../../screens/Contador/components/DisplaySuma"
 import PokeFinder from "../../screens/PokeFinder"
 import LogIn from "../../screens/LogIn"
@@ -12,6 +12,7 @@ export type StackNavigatorLoggedInType = {
     Details: { itemId: number }
     Contador: undefined
     PokeFinder: undefined
+    CameraScreen: undefined
 }
 export type StackNavigatorLoggedOutType = {
     Login: undefined
@@ -45,6 +46,11 @@ const StoreStack = () => {
             <StackLoggedIn.Screen name="Details" component={Details} />
             <StackLoggedIn.Screen name="Contador" component={ContadorScreen} />
             <StackLoggedIn.Screen name="PokeFinder" component={PokeFinder} />
+            <StackLoggedIn.Screen
+                options={{ headerShown: false }}
+                name="CameraScreen"
+                component={CameraScreen}
+            />
         </StackLoggedIn.Navigator>
     ) : (
         <StackLoggedOut.Navigator initialRouteName="Login">

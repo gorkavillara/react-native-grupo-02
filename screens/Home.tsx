@@ -33,6 +33,12 @@ const Home = ({
                 <Text style={[styles.title, styles.text]}>Home</Text>
                 <Pressable
                     style={styles.button}
+                    onPress={() => navigation.navigate("CameraScreen")}
+                >
+                    <Text>Ir a cámara</Text>
+                </Pressable>
+                {/* <Pressable
+                    style={styles.button}
                     onPress={() => navigation.navigate("Store")}
                 >
                     <Text>Ir a la tienda</Text>
@@ -51,7 +57,7 @@ const Home = ({
                 </Pressable>
                 <Pressable onPress={logout}>
                     <Text style={{ color: "white" }}>Logout</Text>
-                </Pressable>
+                </Pressable> */}
             </View>
         </ImageBackground>
     )
