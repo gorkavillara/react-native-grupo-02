@@ -1,7 +1,8 @@
 import { BarCodeScanningResult, Camera, CameraType } from "expo-camera"
 import * as MediaLibrary from "expo-media-library"
-import { ToastAndroid, Vibration, Linking } from "react-native"
+import { ToastAndroid, Vibration, Linking, Alert } from "react-native"
 import { useEffect, useState, useRef } from "react"
+import * as Sharing from "expo-sharing"
 
 export const useCamera = () => {
     const [permission, requestPermission] = Camera.useCameraPermissions()
@@ -51,10 +52,12 @@ export const useCamera = () => {
         ToastAndroid.show("👀 Código escaneado correctamente", 300)
         Vibration.vibrate(300)
 
-        Linking.canOpenURL(scanningResult.data).then((can) =>
-            can && Linking.openURL(scanningResult.data).catch((err) => {
-                console.log("Error al abrir la url", err)
-            })
+        Linking.canOpenURL(scanningResult.data).then(
+            (can) =>
+                can &&
+                Linking.openURL(scanningResult.data).catch((err) => {
+                    console.log("Error al abrir la url", err)
+                })
         )
     }
 
@@ -67,6 +70,7 @@ export const useCamera = () => {
             // Obtener la foto y almacenarla en nuestra galería
             // console.log(res.uri)
             savePictureInDevice(res.uri)
+            askForSharing(res.uri)
         })
     }
 
@@ -74,6 +78,21 @@ export const useCamera = () => {
         const intent = "content://media/internal/images/media"
         Linking.openURL(intent).catch((err) => {
             console.log("Error al abrir la galería", err)
+        })
+    }
+
+    const askForSharing = (uri: string) => {
+        Alert.alert("Un mensaje", "Este es el cuerpo del mensaje", [
+            { text: "Compartir", onPress: () => sharePicture(uri) },
+            { text: "Cancelar", onPress: () => null }
+        ])
+    }
+
+    const sharePicture = (uri: string) => {
+        Sharing.isAvailableAsync().then((can) => {
+            if (!can) return
+
+            Sharing.shareAsync(uri).then(console.log)
         })
     }
 

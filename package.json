@@ -34,7 +34,9 @@
     "react-native-maps": "1.7.1",
     "expo-location": "~16.1.0",
     "expo-notifications": "~0.20.1",
-    "expo-device": "~5.4.0"
+    "expo-device": "~5.4.0",
+    "expo-contacts": "~12.2.0",
+    "expo-sharing": "~11.5.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

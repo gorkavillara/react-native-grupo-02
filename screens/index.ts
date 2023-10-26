@@ -5,6 +5,7 @@ import Contador from "./Contador/Contador"
 import CameraScreen from "./CameraScreen/CameraScreen"
 import MapsScreen from "./MapsScreen/MapsScreen"
 import NotificationsScreen from "./NotificationsScreen"
+import ContactsScreen from "./ContactsScreen"
 
 export {
     NotificationsScreen,
@@ -13,5 +14,6 @@ export {
     Details,
     Contador,
     CameraScreen,
-    MapsScreen
+    MapsScreen,
+    ContactsScreen
 }

@@ -48,6 +48,12 @@ const Home = ({
                 >
                     <Text>Ir a Notificaciones</Text>
                 </Pressable>
+                <Pressable
+                    style={styles.button}
+                    onPress={() => navigation.navigate("ContactsScreen")}
+                >
+                    <Text>Ir a Contactos</Text>
+                </Pressable>
                 {/* <Pressable
                     style={styles.button}
                     onPress={() => navigation.navigate("Store")}

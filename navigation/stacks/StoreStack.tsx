@@ -6,7 +6,8 @@ import {
     Home,
     Store,
     MapsScreen,
-    NotificationsScreen
+    NotificationsScreen,
+    ContactsScreen
 } from "../../screens"
 import DisplaySuma from "../../screens/Contador/components/DisplaySuma"
 import PokeFinder from "../../screens/PokeFinder"
@@ -22,6 +23,7 @@ export type StackNavigatorLoggedInType = {
     CameraScreen: undefined
     MapsScreen: undefined
     NotificationsScreen: undefined
+    ContactsScreen: undefined
 }
 export type StackNavigatorLoggedOutType = {
     Login: undefined
@@ -69,6 +71,11 @@ const StoreStack = () => {
                 options={{ animation: "fade_from_bottom" }}
                 name="NotificationsScreen"
                 component={NotificationsScreen}
+            />
+            <StackLoggedIn.Screen
+                options={{ animation: "fade_from_bottom" }}
+                name="ContactsScreen"
+                component={ContactsScreen}
             />
         </StackLoggedIn.Navigator>
     ) : (
