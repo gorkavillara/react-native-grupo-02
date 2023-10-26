@@ -5,12 +5,10 @@ import {
     StyleSheet,
     Pressable
 } from "react-native"
-import { BlurView } from "expo-blur"
 import { standardStyles } from "../styles"
 import { StackNavigatorLoggedInType } from "../navigation/stacks/StoreStack"
 import type { NativeStackScreenProps } from "@react-navigation/native-stack"
 import { useUser } from "../hooks/useUser"
-import { StatusBar } from "expo-status-bar"
 
 const Home = ({
     navigation,
@@ -44,6 +42,12 @@ const Home = ({
                 >
                     <Text>Ir a mapas</Text>
                 </Pressable>
+                <Pressable
+                    style={styles.button}
+                    onPress={() => navigation.navigate("NotificationsScreen")}
+                >
+                    <Text>Ir a Notificaciones</Text>
+                </Pressable>
                 {/* <Pressable
                     style={styles.button}
                     onPress={() => navigation.navigate("Store")}
@@ -66,7 +70,6 @@ const Home = ({
                     <Text style={{ color: "white" }}>Logout</Text>
                 </Pressable> */}
             </View>
-            <StatusBar style="light" />
         </ImageBackground>
     )
 }

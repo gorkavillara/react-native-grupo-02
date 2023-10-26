@@ -1,6 +1,13 @@
-import { Text } from "react-native"
 import { createNativeStackNavigator } from "@react-navigation/native-stack"
-import { CameraScreen, Contador, Details, Home, Store, MapsScreen } from "../../screens"
+import {
+    CameraScreen,
+    Contador,
+    Details,
+    Home,
+    Store,
+    MapsScreen,
+    NotificationsScreen
+} from "../../screens"
 import DisplaySuma from "../../screens/Contador/components/DisplaySuma"
 import PokeFinder from "../../screens/PokeFinder"
 import LogIn from "../../screens/LogIn"
@@ -14,6 +21,7 @@ export type StackNavigatorLoggedInType = {
     PokeFinder: undefined
     CameraScreen: undefined
     MapsScreen: undefined
+    NotificationsScreen: undefined
 }
 export type StackNavigatorLoggedOutType = {
     Login: undefined
@@ -56,6 +64,11 @@ const StoreStack = () => {
                 options={{ headerShown: false, animation: "fade_from_bottom" }}
                 name="MapsScreen"
                 component={MapsScreen}
+            />
+            <StackLoggedIn.Screen
+                options={{ animation: "fade_from_bottom" }}
+                name="NotificationsScreen"
+                component={NotificationsScreen}
             />
         </StackLoggedIn.Navigator>
     ) : (
