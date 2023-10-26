@@ -10,6 +10,7 @@ import { standardStyles } from "../styles"
 import { StackNavigatorLoggedInType } from "../navigation/stacks/StoreStack"
 import type { NativeStackScreenProps } from "@react-navigation/native-stack"
 import { useUser } from "../hooks/useUser"
+import { StatusBar } from "expo-status-bar"
 
 const Home = ({
     navigation,
@@ -65,6 +66,7 @@ const Home = ({
                     <Text style={{ color: "white" }}>Logout</Text>
                 </Pressable> */}
             </View>
+            <StatusBar style="light" />
         </ImageBackground>
     )
 }
